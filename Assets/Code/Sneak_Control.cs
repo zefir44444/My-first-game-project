@@ -19,8 +19,9 @@ public class Sneak_Control : MonoBehaviour
         Vector2 input = ReadInput();
 
         //Read postition of the snake
-        Vector3 movemenet = new Vector3(input.x, input.y, 0) * speed * Time.deltaTime;
-        transform.position += movemenet;
+        //smooth 
+        //Vector3 movemenet = new Vector3(input.x, input.y, 0) * speed * Time.deltaTime;
+        //transform.position += movemenet;
     }
 
     private static Vector2 ReadInput()
