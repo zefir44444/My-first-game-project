@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Sneak_Control : MonoBehaviour
@@ -16,7 +18,12 @@ public class Sneak_Control : MonoBehaviour
     void Update()
     {
         //Read input from the player
-        Vector2 input = ReadInput();
+        UnityEngine.Vector2 input = ReadInput();
+
+        //Snake current location in the game
+        UnityEngine.Vector3 position = transform.position;
+        position.y = position.y +  0.01f;
+        transform.position = position;
 
         //Read postition of the snake
         //smooth 
@@ -24,11 +31,11 @@ public class Sneak_Control : MonoBehaviour
         //transform.position += movemenet;
     }
 
-    private static Vector2 ReadInput()
+    private static UnityEngine.Vector2 ReadInput()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        return new Vector2(horizontal, vertical);
+        return new UnityEngine.Vector2(horizontal, vertical);
     }
 }
